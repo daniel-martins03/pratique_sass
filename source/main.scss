@@ -1,0 +1,110 @@
+$font-family: Roboto, sans-serif;
+$background-color: #f5f6fa;
+$header-bg-color: #182C61;
+$menu-item-color: #fff;
+$product-button-bg: #44bd32;
+$product-button-hover-bg: #4cd137;
+$border-radius: 16px;
+$product-item-margin: 32px;
+$container-max-width: 1024px;
+$container-max-width-mobile: 80%;
+$grid-gap: 1%;
+$grid-gap-mobile: 3%;
+$button-padding: 8px 0;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+
+.container {
+    max-width: $container-max-width;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    background-color: $background-color;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    background-color: $header-bg-color;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+}
+
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: 24px;
+
+        a {
+            color: $menu-item-color;
+            text-decoration: none;
+        }
+    }
+}
+
+section {
+    padding: 56px 0;
+}
+
+.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: $grid-gap;
+    row-gap: 4%;
+    width: 100%;
+
+    .product-item {
+        img {
+            width: 100%;
+            border-radius: $border-radius;
+        }
+
+        .product-button {
+            display: block;
+            background-color: $product-button-bg;
+            color: #fff;
+            text-align: center;
+            padding: $button-padding;
+            border-radius: 8px;
+            margin-top: 8px;
+            text-decoration: none;
+
+            &:hover {
+                background-color: $product-button-hover-bg;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: $grid-gap-mobile;
+    }
+
+    @media screen and (max-width: 767px) {
+        display: block;
+
+        .product-item {
+            margin-bottom: $product-item-margin;
+        }
+    }
+}
